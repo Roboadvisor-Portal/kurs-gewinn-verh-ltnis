@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Das Kurs-Gewinn-Verhältnis (KGV) verständlich erklärt: Was es ist, wie man es berechnet, warum es die wichtigste Bewertungskennzahl der Börse ist – und wo seine Grenzen liegen.">
+  <meta name="robots" content="index, follow">
+  <title>Das Kurs-Gewinn-Verhältnis – Die Königskennzahl der Börse verstehen</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper:      #F7F3EC;
+      --paper-dark: #EDE8DF;
+      --ink:        #1C1209;
+      --ink-mid:    #3D3020;
+      --ink-light:  #6B5C48;
+      --ink-muted:  #9A8C7A;
+      --forest:     #1A3A2A;
+      --forest-mid: #2D6044;
+      --forest-light:#E8F2EC;
+      --gold:       #C4960A;
+      --gold-light: #F5E8C0;
+      --gold-dark:  #8A6A08;
+      --red:        #8B1A1A;
+      --red-light:  #F5E8E8;
+      --border:     #D4C8B4;
+      --white:      #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Source Serif 4', Georgia, serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.75;
+      font-size: 1.05rem;
+    }
+
+    /* MASTHEAD – Zeitungsstil */
+    .masthead {
+      background: var(--forest);
+      padding: 0.6rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .masthead-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .masthead-date {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem; color: rgba(255,255,255,0.5);
+      letter-spacing: 0.08em;
+    }
+
+    .newspaper-header {
+      background: var(--paper);
+      border-bottom: 4px double var(--ink);
+      padding: 2rem 0 0;
+      text-align: center;
+    }
+    .newspaper-header-inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+    .newspaper-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-weight: 900;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      line-height: 1.0;
+      margin-bottom: 0.5rem;
+    }
+    .newspaper-title em { color: var(--forest-mid); font-style: italic; }
+    .newspaper-subtitle {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--ink-light);
+      max-width: 680px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.4;
+    }
+    .newspaper-rule { border: none; border-top: 1px solid var(--ink); margin: 0; }
+    .newspaper-meta {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.6rem 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      color: var(--ink-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-bottom: 3px solid var(--ink);
+    }
+
+    /* HERO CONTENT */
+    .hero-content {
+      max-width: 1100px; margin: 0 auto;
+      padding: 2.5rem 2rem 0;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 3rem;
+    }
+    .hero-lead h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+    .hero-lead p {
+      font-size: 1.05rem;
+      color: var(--ink-mid);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .hero-lead a { color: var(--forest-mid); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+    .hero-lead a:hover { color: var(--gold-dark); }
+
+    /* KGV RECHNER BOX */
+    .kgv-box {
+      background: var(--forest);
+      color: var(--white);
+      padding: 2rem;
+      align-self: start;
+    }
+    .kgv-box-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+    }
+    .kgv-formula {
+      text-align: center;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+      margin-bottom: 1.5rem;
+    }
+    .kgv-formula .formula-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--white);
+      line-height: 1.6;
+    }
+    .kgv-formula .formula-line {
+      width: 80%; height: 1px;
+      background: var(--gold);
+      margin: 0.5rem auto;
+    }
+    .kgv-formula .formula-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 0.8rem;
+    }
+    .kgv-scale { margin-top: 1rem; }
+    .kgv-scale-item {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+    }
+    .kgv-scale-item:last-child { border-bottom: none; }
+    .kgv-range { color: var(--gold-light); font-weight: 600; }
+    .kgv-verdict { color: rgba(255,255,255,0.7); font-size: 0.78rem; }
+
+    /* MAIN */
+    main { max-width: 1100px; margin: 0 auto; padding: 0 2rem 5rem; }
+
+    /* DREISPALTIGES LAYOUT */
+    .three-col {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin: 3rem 0;
+      padding-top: 2rem;
+      border-top: 2px solid var(--ink);
+    }
+    .col-article h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.8rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .col-article p {
+      font-size: 0.92rem;
+      color: var(--ink-light);
+      line-height: 1.7;
+      margin-bottom: 0.8rem;
+    }
+
+    /* SECTION */
+    .section { margin: 4rem 0; }
+    .section-rule {
+      border: none;
+      border-top: 2px solid var(--ink);
+      margin-bottom: 1.5rem;
+    }
+    .section-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--forest-mid);
+      margin-bottom: 0.5rem;
+    }
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+    .section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 2rem 0 0.6rem;
+    }
+    .section p {
+      color: var(--ink-mid);
+      font-size: 1rem;
+      max-width: 760px;
+      margin-bottom: 1.1rem;
+      line-height: 1.8;
+    }
+    .section a {
+      color: var(--forest-mid);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 600;
+    }
+    .section a:hover { color: var(--gold-dark); }
+
+    /* GROSSES ZITAT */
+    .mega-quote {
+      border-top: 3px solid var(--forest-mid);
+      border-bottom: 3px solid var(--forest-mid);
+      padding: 2.5rem 3rem;
+      margin: 3rem 0;
+      text-align: center;
+    }
+    .mega-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.4;
+      max-width: 800px;
+      margin: 0 auto 0.8rem;
+    }
+    .mega-quote cite {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--forest-mid);
+      font-style: normal;
+    }
+
+    /* DATA BAND */
+    .data-band {
+      background: var(--ink);
+      margin: 3rem 0;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1px;
+    }
+    .db-item {
+      background: var(--ink);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      border-right: 1px solid #333;
+    }
+    .db-item:last-child { border-right: none; }
+    .db-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem; font-weight: 900;
+      color: var(--white); line-height: 1; display: block;
+    }
+    .db-value.gold { color: #D4A017; }
+    .db-value.green { color: #74C69D; }
+    .db-value.red { color: #F4A0A0; }
+    .db-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-top: 0.4rem; display: block;
+    }
+
+    /* TABELLE */
+    .table-wrap { overflow-x: auto; margin: 2rem 0; }
+    table { width: 100%; border-collapse: collapse; font-family: 'Inter', sans-serif; }
+    thead tr { border-bottom: 2px solid var(--ink); }
+    th {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--ink); padding: 0.7rem 1rem; text-align: left;
+    }
+    td { padding: 0.85rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; color: var(--ink-light); }
+    td.hl { color: var(--forest-mid); font-weight: 700; }
+    td.gold-hl { color: var(--gold-dark); font-weight: 700; }
+    td.red-hl { color: var(--red); font-weight: 700; }
+    tr:hover td { background: var(--paper-dark); }
+
+    /* INFOBOX */
+    .infobox {
+      border-left: 4px solid var(--forest-mid);
+      background: var(--forest-light);
+      padding: 1.2rem 1.5rem; margin: 1.5rem 0;
+      border: 1px solid #C8DDD0;
+      border-left: 4px solid var(--forest-mid);
+    }
+    .infobox strong {
+      display: block; font-family: 'Inter', sans-serif;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--forest); margin-bottom: 0.5rem;
+    }
+    .infobox p { font-size: 0.9rem; color: var(--ink-light); max-width: 100%; margin: 0; line-height: 1.6; font-family: 'Inter', sans-serif; }
+
+    .infobox-gold { border-left-color: var(--gold); background: var(--gold-light); border-color: #D4BC88; border-left: 4px solid var(--gold); }
+    .infobox-gold strong { color: var(--gold-dark); }
+    .infobox-red { border-left-color: var(--red); background: var(--red-light); border-color: #D4AAAA; border-left: 4px solid var(--red); }
+    .infobox-red strong { color: var(--red); }
+
+    /* BEISPIELBOX */
+    .example {
+      background: var(--paper-dark);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+      padding: 1.8rem 2rem; margin: 2rem 0;
+    }
+    .example .ex-label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold-dark); margin-bottom: 1rem;
+    }
+    .example p { font-size: 0.92rem; color: var(--ink-light); max-width: 100%; margin-bottom: 0.6rem; font-family: 'Inter', sans-serif; line-height: 1.6; }
+    .example p:last-child { margin: 0; }
+
+    /* KGV VARIANTEN */
+    .variant-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0; border: 1px solid var(--border); margin: 2rem 0;
+    }
+    .vcard { padding: 1.8rem 1.5rem; background: var(--white); border-right: 1px solid var(--border); }
+    .vcard:last-child { border-right: none; }
+    .vcard.featured { background: var(--forest-light); border-top: 3px solid var(--forest-mid); }
+    .vcard-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 0.3rem;
+    }
+    .vcard-abbr {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--forest-mid); margin-bottom: 0.8rem; display: block;
+    }
+    .vcard p { font-size: 0.85rem; color: var(--ink-light); line-height: 1.6; max-width: 100%; margin: 0; font-family: 'Inter', sans-serif; }
+
+    /* BRANCHEN CHART */
+    .branch-row {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 0.8rem 0; border-bottom: 1px solid var(--border);
+      font-family: 'Inter', sans-serif;
+    }
+    .branch-row:first-child { border-top: 1px solid var(--border); }
+    .branch-name { font-size: 0.82rem; font-weight: 600; color: var(--ink-mid); min-width: 180px; }
+    .branch-bar-wrap { flex: 1; }
+    .branch-bar { height: 5px; background: var(--paper-dark); border-radius: 2px; position: relative; overflow: hidden; }
+    .branch-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 2px; background: var(--forest-mid); }
+    .branch-fill.high { background: var(--red); }
+    .branch-fill.low { background: var(--gold); }
+    .branch-kgv { font-size: 1.1rem; font-weight: 900; font-family: 'Playfair Display', serif; color: var(--ink); min-width: 50px; text-align: right; }
+
+    .rule { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+
+    /* CTA */
+    .cta-strip {
+      background: var(--forest);
+      color: var(--white); padding: 3rem 2.5rem; margin: 4rem 0 0;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 2rem; align-items: center;
+    }
+    .cta-strip h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 900; color: var(--white); margin-bottom: 0.5rem;
+    }
+    .cta-strip h3 em { color: var(--gold-light); font-style: italic; }
+    .cta-strip p { color: rgba(255,255,255,0.6); font-size: 0.9rem; font-family: 'Inter', sans-serif; }
+    .cta-btn {
+      display: inline-block; background: var(--gold);
+      color: var(--ink); font-family: 'Inter', sans-serif;
+      font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 1rem 2rem; text-decoration: none; white-space: nowrap;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: var(--gold-light); }
+
+    footer {
+      border-top: 2px solid var(--ink); padding: 1.5rem 2rem;
+      max-width: 1100px; margin: 0 auto;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 1rem;
+      background: var(--paper); font-family: 'Inter', sans-serif;
+    }
+    footer p { font-size: 0.75rem; color: var(--ink-muted); }
+    footer a { color: var(--forest-mid); text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .hero-content { grid-template-columns: 1fr; }
+      .three-col { grid-template-columns: 1fr; }
+      .variant-grid { grid-template-columns: 1fr; }
+      .vcard { border-right: none; border-bottom: 1px solid var(--border); }
+      .data-band { grid-template-columns: repeat(2, 1fr); }
+      .cta-strip { grid-template-columns: 1fr; }
+      main { padding: 0 1.2rem 4rem; }
+      .mega-quote { padding: 1.5rem; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+  </style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<div class="masthead">
+  <span class="masthead-name">InvestmentWissen · Finanzanalyse</span>
+  <span class="masthead-date">Juni 2026 · Unabhängig seit 2016</span>
+</div>
+
+<!-- ZEITUNGSKOPF -->
+<header class="newspaper-header">
+  <div class="newspaper-header-inner">
+    <h1 class="newspaper-title">
+      Das <em>Kurs-Gewinn-Verhältnis</em><br>
+      – Die Königskennzahl der Börse
+    </h1>
+    <p class="newspaper-subtitle">
+      Keine Börsenkennzahl wird häufiger zitiert, häufiger missverstanden und häufiger falsch angewendet als das KGV. Höchste Zeit für eine gründliche Analyse.
+    </p>
+    <hr class="newspaper-rule">
+    <div class="newspaper-meta">
+      <span>Finanzanalyse · Bewertungskennzahlen · Value Investing</span>
+      <span>Markus Gildemeister · Roboadvisor-Portal.com</span>
+      <span>Lesezeit: ca. 12 Minuten</span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO CONTENT -->
+<div class="hero-content">
+  <div class="hero-lead">
+    <h2>Warum das KGV die wichtigste – und missverstandenste – Kennzahl der Börse ist</h2>
+    <p>Es gibt Börsenkennzahlen, die man kennen muss. Und dann gibt es das Kurs-Gewinn-Verhältnis. Das KGV ist allgegenwärtig – in Anlegerbriefen, Analystenberichten, Finanzmedien und Stammtischgesprächen über Aktien. Kaum eine andere Kennzahl wird so oft zitiert, so schnell berechnet und so leichtfertig interpretiert.</p>
+    <p>Dabei ist das <a href="https://www.roboadvisor-portal.com/kurs-gewinn-verhaeltnis/" target="_blank" rel="noopener">Kurs-Gewinn-Verhältnis</a> ein komplexes Werkzeug mit klaren Stärken, aber auch erheblichen Schwächen. Wer es richtig versteht und im richtigen Kontext anwendet, hat einen echten analytischen Vorteil. Wer es mechanisch anwendet, ohne seine Grenzen zu kennen, trifft gefährliche Fehleinschätzungen.</p>
+    <p>Diese Analyse erklärt das KGV von Grund auf – seine Berechnung, seine Interpretation, seine Varianten, seine Stärken und Schwächen und seine praktische Anwendung für Privatanleger und im Kontext automatisierter Anlagestrategien.</p>
+  </div>
+
+  <!-- KGV BOX -->
+  <div class="kgv-box">
+    <div class="kgv-box-title">Das KGV auf einen Blick</div>
+    <div class="kgv-formula">
+      <div class="formula-text">
+        Aktienkurs<br>
+        <div class="formula-line"></div>
+        Gewinn je Aktie
+      </div>
+      <div class="formula-label">Kurs-Gewinn-Verhältnis (KGV / P/E Ratio)</div>
+    </div>
+    <div class="kgv-scale">
+      <div class="kgv-scale-item">
+        <span class="kgv-range">Unter 10</span>
+        <span class="kgv-verdict">Möglicherweise unterbewertet</span>
+      </div>
+      <div class="kgv-scale-item">
+        <span class="kgv-range">10 – 15</span>
+        <span class="kgv-verdict">Günstig bewertet</span>
+      </div>
+      <div class="kgv-scale-item">
+        <span class="kgv-range">15 – 20</span>
+        <span class="kgv-verdict">Marktdurchschnitt</span>
+      </div>
+      <div class="kgv-scale-item">
+        <span class="kgv-range">20 – 30</span>
+        <span class="kgv-verdict">Ambitioniert bewertet</span>
+      </div>
+      <div class="kgv-scale-item">
+        <span class="kgv-range">Über 30</span>
+        <span class="kgv-verdict">Wachstumsprämie oder Blase</span>
+      </div>
+      <div class="kgv-scale-item">
+        <span class="kgv-range">Negativ</span>
+        <span class="kgv-verdict">Unternehmen macht Verlust</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DREISPALTIG -->
+<main>
+  <div class="three-col">
+    <div class="col-article">
+      <h3>Die Grundidee hinter dem KGV</h3>
+      <p>Das KGV beantwortet eine einfache Frage: Wie viele Jahre Unternehmensgewinne zahlt ein Anleger heute für eine Aktie? Ein KGV von 20 bedeutet: Bei gleichbleibendem Gewinn dauert es 20 Jahre, bis das Unternehmen seinen aktuellen Börsenwert durch Gewinne wieder „eingespielt" hat. Diese intuitive Lesart macht das KGV so populär.</p>
+    </div>
+    <div class="col-article">
+      <h3>Was das KGV wirklich misst</h3>
+      <p>Präziser ausgedrückt misst das KGV die Bewertung einer Aktie im Verhältnis zur Ertragskraft des Unternehmens. Es verbindet zwei Welten: die Marktbewertung (Kurs) mit der fundamentalen Geschäftsrealität (Gewinn). Hohe KGVs signalisieren hohe Erwartungen der Investoren, niedrige KGVs Skepsis – oder unterbewertete Qualität.</p>
+    </div>
+    <div class="col-article">
+      <h3>Warum Kontext alles ist</h3>
+      <p>Ein KGV von 25 kann je nach Branche, Wachstumsperspektive und Zinsumfeld günstig, fair oder astronomisch überteuert sein. Ein Tech-Wachstumsunternehmen mit 30 % Umsatzsteigerung verdient ein anderes KGV als ein stagnierender Versorger. Ohne Kontext ist das KGV eine Zahl ohne Bedeutung.</p>
+    </div>
+  </div>
+
+  <div class="data-band">
+    <div class="db-item">
+      <span class="db-value gold">~22</span>
+      <span class="db-label">∅ KGV S&P 500 historisch</span>
+    </div>
+    <div class="db-item">
+      <span class="db-value green">~15</span>
+      <span class="db-label">∅ KGV MSCI World hist.</span>
+    </div>
+    <div class="db-item">
+      <span class="db-value">~36</span>
+      <span class="db-label">Shiller-CAPE S&P 500 2026</span>
+    </div>
+    <div class="db-item">
+      <span class="db-value red">negativ</span>
+      <span class="db-label">KGV bei Verlustunternehmen</span>
+    </div>
+    <div class="db-item">
+      <span class="db-value gold">1/KGV</span>
+      <span class="db-label">= Gewinnrendite (Earnings Yield)</span>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- BERECHNUNG -->
+  <div class="section">
+    <div class="section-rule"></div>
+    <div class="section-label">Teil 1</div>
+    <h2>Das KGV berechnen – einfacher als gedacht</h2>
+
+    <p>Die Formel des KGV ist so simpel wie ihre Interpretation komplex. Das Kurs-Gewinn-Verhältnis errechnet sich aus dem aktuellen Aktienkurs dividiert durch den Gewinn je Aktie (englisch: Earnings Per Share, EPS). Das Ergebnis ist eine dimensionslose Zahl – ein Multiplikator – der angibt, das Wievielfache des Jahresgewinns ein Anleger für eine Aktie bezahlt.</p>
+
+    <div class="example">
+      <p class="ex-label">Rechenbeispiel: KGV berechnen</p>
+      <p><strong>Unternehmen A:</strong> Aktienkurs 80 € · Gewinn je Aktie 4 € → KGV = 80 / 4 = <strong>20</strong></p>
+      <p><strong>Unternehmen B:</strong> Aktienkurs 45 € · Gewinn je Aktie 9 € → KGV = 45 / 9 = <strong>5</strong></p>
+      <p><strong>Unternehmen C:</strong> Aktienkurs 200 € · Gewinn je Aktie 2 € → KGV = 200 / 2 = <strong>100</strong></p>
+      <p>Welches ist das attraktivste Investment? Ohne weitere Informationen lässt sich das nicht sagen. Unternehmen B erscheint günstig – aber vielleicht aus gutem Grund. Unternehmen C erscheint teuer – aber vielleicht wächst es mit 50 % pro Jahr.</p>
+    </div>
+
+    <h3>Der Gewinn – aber welcher?</h3>
+    <p>Die eigentliche Komplexität beginnt beim Zähler der Formel: dem Gewinn. Es gibt mehrere Gewinnkonzepte, die im Kontext des KGV relevant sind, und die Wahl des richtigen Gewinnbegriffs verändert das Ergebnis erheblich.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Gewinnbegriff</th>
+            <th>Beschreibung</th>
+            <th>Vor-/Nachteil</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Berichteter Gewinn (GAAP/IFRS)</td><td>Offizieller Jahresabschlussgewinn</td><td>Standardisiert, aber durch Sondereffekte verzerrt</td></tr>
+          <tr><td class="hl">Bereinigter Gewinn</td><td class="hl">Ohne Einmaleffekte, Abschreibungen auf Goodwill</td><td class="hl">Realistischer für operative Ertragskraft</td></tr>
+          <tr><td>Trailing EPS (TTM)</td><td>Letzten 12 Monate tatsächlich</td><td>Rückwärtsgerichtet, historisch verlässlich</td></tr>
+          <tr><td>Forward EPS</td><td>Analystenprognose nächste 12 Monate</td><td>Zukunftsorientiert, aber oft zu optimistisch</td></tr>
+          <tr><td class="gold-hl">Shiller-CAPE</td><td class="gold-hl">Inflationsbereinigt, 10-Jahres-Durchschnitt</td><td class="gold-hl">Glättet Konjunkturzyklen, historisch aussagekräftig</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="infobox-gold infobox">
+      <strong>Die Gewinnrendite – das Kehrwert des KGV</strong>
+      <p>Der Kehrwert des KGV (1/KGV) ergibt die sogenannte Gewinnrendite oder Earnings Yield. Bei einem KGV von 20 beträgt die Gewinnrendite 5 % (1/20). Das ermöglicht einen direkten Vergleich mit Anleiherenditen: Ist die Gewinnrendite höher als die 10-jährige Staatsanleihe, sind Aktien relativ attraktiver – und umgekehrt. Diese Überlegung liegt dem sogenannten Fed-Modell der Aktienbewertung zugrunde.</p>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- VARIANTEN -->
+  <div class="section">
+    <div class="section-rule"></div>
+    <div class="section-label">Teil 2</div>
+    <h2>KGV-Varianten – welche wann verwenden?</h2>
+
+    <p>Das einfache KGV ist nur der Ausgangspunkt. In der Praxis haben sich mehrere Varianten etabliert, die verschiedene Schwächen des Basis-KGV adressieren:</p>
+
+    <div class="variant-grid">
+      <div class="vcard">
+        <span class="vcard-abbr">Trailing P/E · Historisch</span>
+        <div class="vcard-name">KGV auf Basis Vergangenheitsgewinne</div>
+        <p>Verwendet den tatsächlich erzielten Gewinn der letzten 12 Monate. Verlässlich und manipulationssicher, weil auf berichteten Zahlen basierend – aber rückwärtsgerichtet und für schnell wachsende Unternehmen wenig aussagekräftig.</p>
+      </div>
+      <div class="vcard featured">
+        <span class="vcard-abbr">Forward P/E · Zukunft</span>
+        <div class="vcard-name">KGV auf Basis Gewinnprognosen</div>
+        <p>Basiert auf Analystenschätzungen für die nächsten 12 Monate. Zukunftsorientierter und für Wachstumsunternehmen relevanter – aber abhängig von der Qualität der Prognosen, die historisch zu optimistisch sind. Muss mit Skepsis gelesen werden.</p>
+      </div>
+      <div class="vcard">
+        <span class="vcard-abbr">Shiller CAPE · Langfristig</span>
+        <div class="vcard-name">Cyclically Adjusted P/E Ratio</div>
+        <p>Entwickelt von Nobelpreisträger Robert Shiller: Kurs dividiert durch den inflationsbereinigten Durchschnittsgewinn der letzten 10 Jahre. Glättet konjunkturelle Schwankungen und gilt als bester Langfrist-Bewertungsindikator – aber wenig geeignet für einzelne Aktien.</p>
+      </div>
+    </div>
+
+    <h3>PEG-Ratio – das KGV mit Wachstumskorrektur</h3>
+    <p>Eine wichtige Weiterentwicklung des KGV ist die PEG-Ratio (Price/Earnings-to-Growth): das KGV dividiert durch die erwartete Wachstumsrate des Gewinns. Ein Unternehmen mit KGV 30 und 30 % Gewinnwachstum hat eine PEG-Ratio von 1,0 – was als fair bewertet gilt. Ein Unternehmen mit KGV 30 und nur 10 % Wachstum hat eine PEG-Ratio von 3,0 – teuer.</p>
+
+    <div class="example">
+      <p class="ex-label">PEG-Ratio Vergleich</p>
+      <p><strong>Wachstumsunternehmen:</strong> KGV 40, Gewinnwachstum 40 % p.a. → PEG = 1,0 → Fair bewertet trotz hohem KGV</p>
+      <p><strong>Reifes Unternehmen:</strong> KGV 15, Gewinnwachstum 5 % p.a. → PEG = 3,0 → Teuer trotz niedrigem KGV</p>
+      <p><strong>Value-Kandidat:</strong> KGV 12, Gewinnwachstum 15 % p.a. → PEG = 0,8 → Möglicherweise unterbewertet</p>
+    </div>
+  </div>
+
+  <div class="mega-quote">
+    <p>„Das KGV sagt dir den Preis einer Aktie. Was es dir nicht sagt: ob dieser Preis gerechtfertigt ist. Das ist die Arbeit, die der Investor selbst leisten muss."</p>
+    <cite>Grundprinzip der Fundamentalanalyse</cite>
+  </div>
+
+  <hr class="rule">
+
+  <!-- BRANCHENVERGLEICH -->
+  <div class="section">
+    <div class="section-rule"></div>
+    <div class="section-label">Teil 3</div>
+    <h2>KGV im Branchenvergleich – ohne Kontext wertlos</h2>
+
+    <p>Eines der häufigsten Missverständnisse beim KGV ist der sektorübergreifende Vergleich. Ein KGV von 25 ist für ein Tech-Unternehmen möglicherweise günstig, für einen Versorger hingegen astronomisch überteuert. Verschiedene Branchen haben strukturell unterschiedliche faire KGV-Niveaus, bedingt durch ihre Wachstumsperspektiven, Kapitalintensität und Ertragsstabilität.</p>
+
+    <div style="margin: 2rem 0;">
+      <div class="branch-row">
+        <span class="branch-name">Technologie (USA)</span>
+        <div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill high" style="width: 80%"></div></div></div>
+        <span class="branch-kgv">~35</span>
+      </div>
+      <div class="branch-row">
+        <span class="branch-name">Konsumgüter (Wachstum)</span>
+        <div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill high" style="width: 65%"></div></div></div>
+        <span class="branch-kgv">~28</span>
+      </div>
+      <div class="branch-row">
+        <span class="branch-name">Gesundheitswesen</span>
+        <div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill" style="width: 55%"></div></div></div>
+        <span class="branch-kgv">~22</span>
+      </div>
+      <div class="branch-row">
+        <span class="branch-name">Industrieunternehmen</span>
+        <div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill" style="width: 42%"></div></div></div>
+        <span class="branch-kgv">~18</span>
+      </div>
+      <div class="branch-row">
+        <span class="branch-name">Finanzwerte</span>
+        <div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill low" style="width: 30%"></div></div></div>
+        <span class="branch-kgv">~12</span>
+      </div>
+      <div class="branch-row">
+        <span class="branch-name">Energie (Öl & Gas)</span>
+        <div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill low" style="width: 25%"></div></div></div>
+        <span class="branch-kgv">~10</span>
+      </div>
+      <div class="branch-row">
+        <span class="branch-name">Versorger</span>
+        <div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill low" style="width: 35%"></div></div></div>
+        <span class="branch-kgv">~15</span>
+      </div>
+    </div>
+    <p style="font-size: 0.78rem; color: var(--ink-muted); font-family: 'Inter', sans-serif;">Ungefähre historische Durchschnittswerte · variieren je nach Konjunktur und Zinsniveau</p>
+
+    <div class="infobox">
+      <strong>Die goldene Regel des Branchenvergleichs</strong>
+      <p>Vergleichen Sie KGVs immer innerhalb derselben Branche und mit dem historischen Durchschnitt dieser Branche. Ein Technologieunternehmen mit KGV 25 kann günstiger sein als ein Versorger mit KGV 18 – wenn der historische Durchschnitt für Tech bei 30 liegt und für Versorger bei 14.</p>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- GRENZEN -->
+  <div class="section">
+    <div class="section-rule"></div>
+    <div class="section-label">Teil 4</div>
+    <h2>Die Grenzen des KGV – was es nicht kann</h2>
+
+    <p>So nützlich das KGV ist – es hat erhebliche strukturelle Schwächen, die jeder Anleger kennen muss:</p>
+
+    <h3>Problem 1: Gewinne sind manipulierbar</h3>
+    <p>Der Gewinn je Aktie im Nenner des KGV ist eine buchhalterische Größe – und Buchhaltung lässt Spielräume. Durch die Wahl von Abschreibungsmethoden, die Aktivierung von Entwicklungskosten, die Behandlung von Rückstellungen und zahlreiche andere Wahlrechte können Unternehmen ihre berichteten Gewinne erheblich beeinflussen. Ein niedriges KGV, das auf aggressiver Gewinnoptimierung basiert, ist ein trügerisches Signal.</p>
+
+    <h3>Problem 2: Schulden werden ignoriert</h3>
+    <p>Das klassische KGV berücksichtigt die Kapitalstruktur eines Unternehmens nicht. Ein hochverschuldetes Unternehmen und ein schuldenfreies Unternehmen können dasselbe KGV haben – sind aber fundamental unterschiedliche Investments. Ein hoch verschuldetes Unternehmen trägt mehr Risiko, muss mehr Zinsen zahlen und hat weniger Flexibilität. Das KGV allein erkennt diesen Unterschied nicht.</p>
+
+    <div class="infobox-red infobox">
+      <strong>Die gefährlichsten KGV-Fallen</strong>
+      <p>1. Negatives KGV ignorieren: Bei Verlustunternehmen ist das KGV nicht berechenbar oder negativ – das KGV verschwindet, das Risiko bleibt. 2. Zykliker mit Tief-KGV kaufen: In Hochkonjunktur erscheinen Zyklikeraktien billig (hohes Ergebnis → niedriges KGV) – genau dann sind sie oft am teuersten. 3. KGV isoliert betrachten: Ohne Wachstum, Schulden, Branche und Marktumfeld ist das KGV wertlos.</p>
+    </div>
+
+    <h3>Problem 3: Zinsen und das KGV</h3>
+    <p>Das faire KGV-Niveau ist nicht konstant – es hängt vom Zinsniveau ab. In Nullzinsphasen rechtfertigen höhere Zinsen niedrigere KGVs, weil Anleihen als Alternative attraktiver werden. Das erklärt, warum der Anstieg der Zinsen 2022–2023 zu erheblichen KGV-Kompressionen bei Wachstumsaktien geführt hat – nicht weil die Gewinne einbrachen, sondern weil das faire KGV bei höheren Zinsen niedriger ist.</p>
+
+    <h3>Problem 4: Wachstum wird nicht berücksichtigt</h3>
+    <p>Ein Unternehmen, das seinen Gewinn jährlich um 30 % steigert, verdient ein deutlich höheres KGV als ein stagnierendes Unternehmen – auch wenn beide heute denselben Gewinn erzielen. Das einfache KGV kann diesen Wachstumswert nicht einfangen. Hier hilft die PEG-Ratio als Ergänzung.</p>
+  </div>
+
+  <hr class="rule">
+
+  <!-- ANWENDUNG -->
+  <div class="section">
+    <div class="section-rule"></div>
+    <div class="section-label">Teil 5</div>
+    <h2>Praktische Anwendung – wie Anleger das KGV richtig nutzen</h2>
+
+    <div class="section">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin: 1rem 0;">
+        <div>
+          <p>Das KGV ist am nützlichsten als Screening-Tool – als erster Filter, der potenzielle Kandidaten für eine tiefere Analyse identifiziert. Ein sehr niedriges KGV im Vergleich zum Branchendurchschnitt signalisiert: hier könnte eine Unterbewertung vorliegen, die weitere Untersuchung rechtfertigt. Oder – und das ist genauso wichtig – hier liegen strukturelle Probleme vor, die das Markt bereits eingepreist hat.</p>
+          <p>Kein seriöser Fundamentalanalyst trifft Anlageentscheidungen allein auf Basis des KGV. Es ist immer ein Ausgangspunkt, niemals ein Endpunkt. Die eigentliche Arbeit beginnt danach: Qualität des Geschäftsmodells, Wettbewerbsposition, Management, Bilanzqualität, Cashflow-Generierung, Wachstumsperspektiven.</p>
+        </div>
+        <div>
+          <p>Für Privatanleger ohne Zeit für tiefe Fundamentalanalyse ist die wichtigste Erkenntnis: Das KGV des Gesamtmarkts ist relevanter als das einzelner Aktien. Das Shiller-CAPE des S&P 500 oder des MSCI World gibt Hinweise darauf, ob Aktien als Anlageklasse insgesamt günstig oder teuer bewertet sind – und damit, ob langfristige Renditeerwartungen eher überdurchschnittlich oder unterdurchschnittlich sein werden.</p>
+          <p>Für Robo-Advisor und passive ETF-Strategien ist das KGV eine Hintergrundvariable: Einige Anbieter nutzen Value-Faktor-Gewichtungen, die günstig bewertete Aktien übergewichten. Andere sind rein marktkapitalisierungsgewichtet und ignorieren Bewertungskennzahlen bewusst.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>KGV-Signal</th>
+            <th>Mögliche Interpretation</th>
+            <th>Weitere Prüfung empfohlen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="hl">Sehr niedriges KGV (unter 10)</td><td>Unterbewertung oder strukturelle Probleme</td><td>Warum ist es so günstig? Schulden? Schrumpfende Branche?</td></tr>
+          <tr><td>Marktdurchschnitt (15–22)</td><td>Fair bewertet bei normalem Wachstum</td><td>Wachstumserwartungen, Branchenvergleich</td></tr>
+          <tr><td class="gold-hl">Hohes KGV (25–40)</td><td>Wachstumsprämie oder Überbewertung</td><td>Rechtfertigt Wachstum die Prämie? PEG-Ratio prüfen</td></tr>
+          <tr><td class="red-hl">Extrem hohes KGV (über 50)</td><td>Starke Wachstumserwartungen oder Blase</td><td>Sehr kritisch prüfen, Margin of Safety bedenken</td></tr>
+          <tr><td class="red-hl">Negatives KGV</td><td>Unternehmen macht Verlust</td><td>Wann kehrt Profitabilität zurück? Cash-Burn-Rate prüfen</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <hr class="rule">
+
+  <!-- FAZIT -->
+  <div class="section">
+    <div class="section-rule"></div>
+    <div class="section-label">Fazit</div>
+    <h2>Das KGV – unverzichtbar, aber nie allein</h2>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin: 1rem 0;">
+      <div>
+        <p>Das Kurs-Gewinn-Verhältnis ist und bleibt die wichtigste Einzelkennzahl der Aktienanalyse – trotz aller Einschränkungen. Es verbindet Marktbewertung mit Unternehmensrealität in einer einzigen, intuitiv verständlichen Zahl. Das macht es unverzichtbar als Orientierungspunkt, als Gesprächsgrundlage und als erster Filter in der Aktienauswahl.</p>
+        <p>Wer das KGV richtig einsetzt – im Branchenkontext, im historischen Vergleich, als Ergänzung zu anderen Kennzahlen wie PEG-Ratio, KBV, EV/EBITDA und freiem Cashflow – hat ein mächtiges analytisches Werkzeug in der Hand. Wer es isoliert und mechanisch anwendet, riskiert gefährliche Fehlschlüsse.</p>
+      </div>
+      <div>
+        <p>Für Privatanleger, die keine Zeit für tiefe Fundamentalanalyse haben, gilt: Das Shiller-CAPE als Marktbewertungsindikator im Blick behalten – und für die eigentliche Anlage auf breit diversifizierte ETF-Sparpläne oder Robo-Advisor setzen, die Bewertungskennzahlen systematisch und algorithmisch verarbeiten.</p>
+        <p>Weiterführende Analysen, unabhängige Vergleiche und aktuelle Bewertungskommentare finden Sie auf dem <a href="https://www.roboadvisor-portal.com" target="_blank" rel="noopener">Roboadvisor-Portal</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-strip">
+    <div>
+      <h3>Robo-Advisor im <em>unabhängigen</em> Vergleich</h3>
+      <p>Über 48 Anbieter analysiert · Bewertungsstrategien erklärt · seit 2016 unabhängig</p>
+    </div>
+    <a href="https://www.roboadvisor-portal.com/robo-advisor-anbieter/" target="_blank" rel="noopener" class="cta-btn">Zur Anbieterübersicht →</a>
+  </div>
+
+</main>
+
+<footer>
+  <p>Informationsseite · <a href="https://www.roboadvisor-portal.com" target="_blank" rel="noopener">Roboadvisor-Portal.com</a> · Kein Anlageberatungsangebot · Alle Angaben ohne Gewähr · Stand: Juni 2026</p>
+  <p>© 2026 InvestmentWissen · Unabhängig & werbefrei</p>
+</footer>
+
+</body>
+</html>
