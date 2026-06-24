@@ -1,0 +1,1 @@
+# kurs-gewinn-verh-ltnis
