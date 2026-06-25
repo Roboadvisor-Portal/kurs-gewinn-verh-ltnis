@@ -3,9 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Das Kurs-Gewinn-Verhältnis (KGV) verständlich erklärt: Was es ist, wie man es berechnet, warum es die wichtigste Bewertungskennzahl der Börse ist – und wo seine Grenzen liegen.">
-  <meta name="robots" content="index, follow">
+
+  <!-- SEO Meta -->
   <title>Das Kurs-Gewinn-Verhältnis – Die Königskennzahl der Börse verstehen</title>
+  <meta name="description" content="Das Kurs-Gewinn-Verhältnis (KGV) verständlich erklärt: Was es ist, wie man es berechnet, warum es die wichtigste Bewertungskennzahl der Börse ist – und wo seine Grenzen liegen.">
+  <meta name="keywords" content="Kurs-Gewinn-Verhältnis, KGV, P/E Ratio, Aktien Bewertung, KGV berechnen, Shiller CAPE, Forward KGV, PEG Ratio, Börsenkennzahl, Value Investing, Aktienanalyse, KGV Branchenvergleich">
+  <meta name="author" content="Roboadvisor-Portal.com">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://shaheen2442347.gitlab.io/kurs-gewinn-verhaeltnis/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Das Kurs-Gewinn-Verhältnis – Die Königskennzahl der Börse verstehen">
+  <meta property="og:description" content="KGV verständlich erklärt: Berechnung, Varianten (Trailing, Forward, Shiller CAPE), Branchenvergleich, PEG-Ratio und die häufigsten Fehler bei der Anwendung.">
+  <meta property="og:url" content="https://shaheen2442347.gitlab.io/kurs-gewinn-verhaeltnis/">
+  <meta property="og:locale" content="de_DE">
+  <meta property="article:published_time" content="2026-06-01T08:00:00+02:00">
+  <meta property="article:modified_time" content="2026-06-25T08:00:00+02:00">
+  <meta property="article:section" content="Aktienanalyse">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Das Kurs-Gewinn-Verhältnis – Die Königskennzahl der Börse">
+  <meta name="twitter:description" content="KGV erklärt: Berechnung, Shiller CAPE, PEG-Ratio, Branchenvergleich und die größten Fallen bei der Anwendung.">
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Das Kurs-Gewinn-Verhältnis – Die Königskennzahl der Börse verstehen",
+        "description": "Das Kurs-Gewinn-Verhältnis (KGV) verständlich erklärt: Berechnung, Varianten, Branchenvergleich und Grenzen der wichtigsten Börsenbewertungskennzahl.",
+        "datePublished": "2026-06-01T08:00:00+02:00",
+        "dateModified": "2026-06-25T08:00:00+02:00",
+        "inLanguage": "de-DE",
+        "author": {
+          "@type": "Organization",
+          "name": "Roboadvisor-Portal",
+          "url": "https://www.roboadvisor-portal.com"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Roboadvisor-Portal",
+          "url": "https://www.roboadvisor-portal.com"
+        },
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://shaheen2442347.gitlab.io/kurs-gewinn-verhaeltnis/"
+        },
+        "articleSection": "Aktienanalyse",
+        "keywords": "Kurs-Gewinn-Verhältnis, KGV, P/E Ratio, Shiller CAPE, PEG Ratio, Value Investing"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Was ist das Kurs-Gewinn-Verhältnis (KGV)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Das Kurs-Gewinn-Verhältnis (KGV) ist eine Börsenkennzahl, die den aktuellen Aktienkurs ins Verhältnis zum Gewinn je Aktie setzt. Es gibt an, das Wievielfache des Jahresgewinns ein Anleger für eine Aktie bezahlt. Formel: KGV = Aktienkurs / Gewinn je Aktie."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was ist ein gutes KGV?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ein gutes KGV hängt stark von Branche, Wachstum und Zinsniveau ab. Historisch gilt ein KGV von 10–15 als günstig, 15–20 als Marktdurchschnitt und über 25 als ambitioniert bewertet. Ohne Branchenkontext ist das KGV allein wenig aussagekräftig."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was ist der Unterschied zwischen KGV und Shiller CAPE?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Das klassische KGV verwendet den Gewinn der letzten 12 Monate oder eine Prognose. Das Shiller CAPE verwendet den inflationsbereinigten Durchschnittsgewinn der letzten 10 Jahre und glättet konjunkturelle Schwankungen. Es gilt als besserer Langfrist-Bewertungsindikator."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was ist die PEG-Ratio?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Die PEG-Ratio ist das KGV dividiert durch die erwartete Gewinnwachstumsrate. Eine PEG-Ratio unter 1,0 gilt als günstig, über 2,0 als teuer."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Welche Grenzen hat das KGV?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Das KGV hat mehrere Grenzen: Gewinne sind buchhalterisch manipulierbar, Schulden werden ignoriert, das faire KGV-Niveau hängt vom Zinsniveau ab, und Wachstum wird nicht berücksichtigt. Bei Verlustunternehmen ist das KGV nicht berechenbar."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Startseite",
+            "item": "https://www.roboadvisor-portal.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Finanzwissen",
+            "item": "https://www.roboadvisor-portal.com"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Kurs-Gewinn-Verhältnis",
+            "item": "https://shaheen2442347.gitlab.io/kurs-gewinn-verhaeltnis/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
 
@@ -39,7 +161,6 @@
       font-size: 1.05rem;
     }
 
-    /* MASTHEAD – Zeitungsstil */
     .masthead {
       background: var(--forest);
       padding: 0.6rem 2rem;
@@ -94,7 +215,6 @@
       border-bottom: 3px solid var(--ink);
     }
 
-    /* HERO CONTENT */
     .hero-content {
       max-width: 1100px; margin: 0 auto;
       padding: 2.5rem 2rem 0;
@@ -119,7 +239,6 @@
     .hero-lead a { color: var(--forest-mid); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
     .hero-lead a:hover { color: var(--gold-dark); }
 
-    /* KGV RECHNER BOX */
     .kgv-box {
       background: var(--forest);
       color: var(--white);
@@ -173,10 +292,8 @@
     .kgv-range { color: var(--gold-light); font-weight: 600; }
     .kgv-verdict { color: rgba(255,255,255,0.7); font-size: 0.78rem; }
 
-    /* MAIN */
     main { max-width: 1100px; margin: 0 auto; padding: 0 2rem 5rem; }
 
-    /* DREISPALTIGES LAYOUT */
     .three-col {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -201,7 +318,6 @@
       margin-bottom: 0.8rem;
     }
 
-    /* SECTION */
     .section { margin: 4rem 0; }
     .section-rule {
       border: none;
@@ -245,7 +361,6 @@
     }
     .section a:hover { color: var(--gold-dark); }
 
-    /* GROSSES ZITAT */
     .mega-quote {
       border-top: 3px solid var(--forest-mid);
       border-bottom: 3px solid var(--forest-mid);
@@ -272,7 +387,6 @@
       font-style: normal;
     }
 
-    /* DATA BAND */
     .data-band {
       background: var(--ink);
       margin: 3rem 0;
@@ -303,7 +417,6 @@
       margin-top: 0.4rem; display: block;
     }
 
-    /* TABELLE */
     .table-wrap { overflow-x: auto; margin: 2rem 0; }
     table { width: 100%; border-collapse: collapse; font-family: 'Inter', sans-serif; }
     thead tr { border-bottom: 2px solid var(--ink); }
@@ -318,7 +431,6 @@
     td.red-hl { color: var(--red); font-weight: 700; }
     tr:hover td { background: var(--paper-dark); }
 
-    /* INFOBOX */
     .infobox {
       border-left: 4px solid var(--forest-mid);
       background: var(--forest-light);
@@ -333,13 +445,11 @@
       color: var(--forest); margin-bottom: 0.5rem;
     }
     .infobox p { font-size: 0.9rem; color: var(--ink-light); max-width: 100%; margin: 0; line-height: 1.6; font-family: 'Inter', sans-serif; }
-
     .infobox-gold { border-left-color: var(--gold); background: var(--gold-light); border-color: #D4BC88; border-left: 4px solid var(--gold); }
     .infobox-gold strong { color: var(--gold-dark); }
     .infobox-red { border-left-color: var(--red); background: var(--red-light); border-color: #D4AAAA; border-left: 4px solid var(--red); }
     .infobox-red strong { color: var(--red); }
 
-    /* BEISPIELBOX */
     .example {
       background: var(--paper-dark);
       border: 1px solid var(--border);
@@ -355,7 +465,6 @@
     .example p { font-size: 0.92rem; color: var(--ink-light); max-width: 100%; margin-bottom: 0.6rem; font-family: 'Inter', sans-serif; line-height: 1.6; }
     .example p:last-child { margin: 0; }
 
-    /* KGV VARIANTEN */
     .variant-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       gap: 0; border: 1px solid var(--border); margin: 2rem 0;
@@ -376,7 +485,6 @@
     }
     .vcard p { font-size: 0.85rem; color: var(--ink-light); line-height: 1.6; max-width: 100%; margin: 0; font-family: 'Inter', sans-serif; }
 
-    /* BRANCHEN CHART */
     .branch-row {
       display: flex; align-items: center; gap: 1rem;
       padding: 0.8rem 0; border-bottom: 1px solid var(--border);
@@ -393,7 +501,6 @@
 
     .rule { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
 
-    /* CTA */
     .cta-strip {
       background: var(--forest);
       color: var(--white); padding: 3rem 2.5rem; margin: 4rem 0 0;
@@ -442,13 +549,11 @@
 </head>
 <body>
 
-<!-- MASTHEAD -->
 <div class="masthead">
   <span class="masthead-name">InvestmentWissen · Finanzanalyse</span>
   <span class="masthead-date">Juni 2026 · Unabhängig seit 2016</span>
 </div>
 
-<!-- ZEITUNGSKOPF -->
 <header class="newspaper-header">
   <div class="newspaper-header-inner">
     <h1 class="newspaper-title">
@@ -467,7 +572,6 @@
   </div>
 </header>
 
-<!-- HERO CONTENT -->
 <div class="hero-content">
   <div class="hero-lead">
     <h2>Warum das KGV die wichtigste – und missverstandenste – Kennzahl der Börse ist</h2>
@@ -476,7 +580,6 @@
     <p>Diese Analyse erklärt das KGV von Grund auf – seine Berechnung, seine Interpretation, seine Varianten, seine Stärken und Schwächen und seine praktische Anwendung für Privatanleger und im Kontext automatisierter Anlagestrategien.</p>
   </div>
 
-  <!-- KGV BOX -->
   <div class="kgv-box">
     <div class="kgv-box-title">Das KGV auf einen Blick</div>
     <div class="kgv-formula">
@@ -488,35 +591,16 @@
       <div class="formula-label">Kurs-Gewinn-Verhältnis (KGV / P/E Ratio)</div>
     </div>
     <div class="kgv-scale">
-      <div class="kgv-scale-item">
-        <span class="kgv-range">Unter 10</span>
-        <span class="kgv-verdict">Möglicherweise unterbewertet</span>
-      </div>
-      <div class="kgv-scale-item">
-        <span class="kgv-range">10 – 15</span>
-        <span class="kgv-verdict">Günstig bewertet</span>
-      </div>
-      <div class="kgv-scale-item">
-        <span class="kgv-range">15 – 20</span>
-        <span class="kgv-verdict">Marktdurchschnitt</span>
-      </div>
-      <div class="kgv-scale-item">
-        <span class="kgv-range">20 – 30</span>
-        <span class="kgv-verdict">Ambitioniert bewertet</span>
-      </div>
-      <div class="kgv-scale-item">
-        <span class="kgv-range">Über 30</span>
-        <span class="kgv-verdict">Wachstumsprämie oder Blase</span>
-      </div>
-      <div class="kgv-scale-item">
-        <span class="kgv-range">Negativ</span>
-        <span class="kgv-verdict">Unternehmen macht Verlust</span>
-      </div>
+      <div class="kgv-scale-item"><span class="kgv-range">Unter 10</span><span class="kgv-verdict">Möglicherweise unterbewertet</span></div>
+      <div class="kgv-scale-item"><span class="kgv-range">10 – 15</span><span class="kgv-verdict">Günstig bewertet</span></div>
+      <div class="kgv-scale-item"><span class="kgv-range">15 – 20</span><span class="kgv-verdict">Marktdurchschnitt</span></div>
+      <div class="kgv-scale-item"><span class="kgv-range">20 – 30</span><span class="kgv-verdict">Ambitioniert bewertet</span></div>
+      <div class="kgv-scale-item"><span class="kgv-range">Über 30</span><span class="kgv-verdict">Wachstumsprämie oder Blase</span></div>
+      <div class="kgv-scale-item"><span class="kgv-range">Negativ</span><span class="kgv-verdict">Unternehmen macht Verlust</span></div>
     </div>
   </div>
 </div>
 
-<!-- DREISPALTIG -->
 <main>
   <div class="three-col">
     <div class="col-article">
@@ -534,36 +618,19 @@
   </div>
 
   <div class="data-band">
-    <div class="db-item">
-      <span class="db-value gold">~22</span>
-      <span class="db-label">∅ KGV S&P 500 historisch</span>
-    </div>
-    <div class="db-item">
-      <span class="db-value green">~15</span>
-      <span class="db-label">∅ KGV MSCI World hist.</span>
-    </div>
-    <div class="db-item">
-      <span class="db-value">~36</span>
-      <span class="db-label">Shiller-CAPE S&P 500 2026</span>
-    </div>
-    <div class="db-item">
-      <span class="db-value red">negativ</span>
-      <span class="db-label">KGV bei Verlustunternehmen</span>
-    </div>
-    <div class="db-item">
-      <span class="db-value gold">1/KGV</span>
-      <span class="db-label">= Gewinnrendite (Earnings Yield)</span>
-    </div>
+    <div class="db-item"><span class="db-value gold">~22</span><span class="db-label">∅ KGV S&P 500 historisch</span></div>
+    <div class="db-item"><span class="db-value green">~15</span><span class="db-label">∅ KGV MSCI World hist.</span></div>
+    <div class="db-item"><span class="db-value">~36</span><span class="db-label">Shiller-CAPE S&P 500 2026</span></div>
+    <div class="db-item"><span class="db-value red">negativ</span><span class="db-label">KGV bei Verlustunternehmen</span></div>
+    <div class="db-item"><span class="db-value gold">1/KGV</span><span class="db-label">= Gewinnrendite (Earnings Yield)</span></div>
   </div>
 
   <hr class="rule">
 
-  <!-- BERECHNUNG -->
   <div class="section">
     <div class="section-rule"></div>
     <div class="section-label">Teil 1</div>
     <h2>Das KGV berechnen – einfacher als gedacht</h2>
-
     <p>Die Formel des KGV ist so simpel wie ihre Interpretation komplex. Das Kurs-Gewinn-Verhältnis errechnet sich aus dem aktuellen Aktienkurs dividiert durch den Gewinn je Aktie (englisch: Earnings Per Share, EPS). Das Ergebnis ist eine dimensionslose Zahl – ein Multiplikator – der angibt, das Wievielfache des Jahresgewinns ein Anleger für eine Aktie bezahlt.</p>
 
     <div class="example">
@@ -580,11 +647,7 @@
     <div class="table-wrap">
       <table>
         <thead>
-          <tr>
-            <th>Gewinnbegriff</th>
-            <th>Beschreibung</th>
-            <th>Vor-/Nachteil</th>
-          </tr>
+          <tr><th>Gewinnbegriff</th><th>Beschreibung</th><th>Vor-/Nachteil</th></tr>
         </thead>
         <tbody>
           <tr><td>Berichteter Gewinn (GAAP/IFRS)</td><td>Offizieller Jahresabschlussgewinn</td><td>Standardisiert, aber durch Sondereffekte verzerrt</td></tr>
@@ -598,18 +661,16 @@
 
     <div class="infobox-gold infobox">
       <strong>Die Gewinnrendite – das Kehrwert des KGV</strong>
-      <p>Der Kehrwert des KGV (1/KGV) ergibt die sogenannte Gewinnrendite oder Earnings Yield. Bei einem KGV von 20 beträgt die Gewinnrendite 5 % (1/20). Das ermöglicht einen direkten Vergleich mit Anleiherenditen: Ist die Gewinnrendite höher als die 10-jährige Staatsanleihe, sind Aktien relativ attraktiver – und umgekehrt. Diese Überlegung liegt dem sogenannten Fed-Modell der Aktienbewertung zugrunde.</p>
+      <p>Der Kehrwert des KGV (1/KGV) ergibt die sogenannte Gewinnrendite oder Earnings Yield. Bei einem KGV von 20 beträgt die Gewinnrendite 5 % (1/20). Das ermöglicht einen direkten Vergleich mit Anleiherenditen: Ist die Gewinnrendite höher als die 10-jährige Staatsanleihe, sind Aktien relativ attraktiver – und umgekehrt.</p>
     </div>
   </div>
 
   <hr class="rule">
 
-  <!-- VARIANTEN -->
   <div class="section">
     <div class="section-rule"></div>
     <div class="section-label">Teil 2</div>
     <h2>KGV-Varianten – welche wann verwenden?</h2>
-
     <p>Das einfache KGV ist nur der Ausgangspunkt. In der Praxis haben sich mehrere Varianten etabliert, die verschiedene Schwächen des Basis-KGV adressieren:</p>
 
     <div class="variant-grid">
@@ -621,17 +682,17 @@
       <div class="vcard featured">
         <span class="vcard-abbr">Forward P/E · Zukunft</span>
         <div class="vcard-name">KGV auf Basis Gewinnprognosen</div>
-        <p>Basiert auf Analystenschätzungen für die nächsten 12 Monate. Zukunftsorientierter und für Wachstumsunternehmen relevanter – aber abhängig von der Qualität der Prognosen, die historisch zu optimistisch sind. Muss mit Skepsis gelesen werden.</p>
+        <p>Basiert auf Analystenschätzungen für die nächsten 12 Monate. Zukunftsorientierter und für Wachstumsunternehmen relevanter – aber abhängig von der Qualität der Prognosen, die historisch zu optimistisch sind.</p>
       </div>
       <div class="vcard">
         <span class="vcard-abbr">Shiller CAPE · Langfristig</span>
         <div class="vcard-name">Cyclically Adjusted P/E Ratio</div>
-        <p>Entwickelt von Nobelpreisträger Robert Shiller: Kurs dividiert durch den inflationsbereinigten Durchschnittsgewinn der letzten 10 Jahre. Glättet konjunkturelle Schwankungen und gilt als bester Langfrist-Bewertungsindikator – aber wenig geeignet für einzelne Aktien.</p>
+        <p>Entwickelt von Nobelpreisträger Robert Shiller: Kurs dividiert durch den inflationsbereinigten Durchschnittsgewinn der letzten 10 Jahre. Glättet konjunkturelle Schwankungen und gilt als bester Langfrist-Bewertungsindikator.</p>
       </div>
     </div>
 
     <h3>PEG-Ratio – das KGV mit Wachstumskorrektur</h3>
-    <p>Eine wichtige Weiterentwicklung des KGV ist die PEG-Ratio (Price/Earnings-to-Growth): das KGV dividiert durch die erwartete Wachstumsrate des Gewinns. Ein Unternehmen mit KGV 30 und 30 % Gewinnwachstum hat eine PEG-Ratio von 1,0 – was als fair bewertet gilt. Ein Unternehmen mit KGV 30 und nur 10 % Wachstum hat eine PEG-Ratio von 3,0 – teuer.</p>
+    <p>Eine wichtige Weiterentwicklung des KGV ist die PEG-Ratio (Price/Earnings-to-Growth): das KGV dividiert durch die erwartete Wachstumsrate des Gewinns. Ein Unternehmen mit KGV 30 und 30 % Gewinnwachstum hat eine PEG-Ratio von 1,0 – was als fair bewertet gilt.</p>
 
     <div class="example">
       <p class="ex-label">PEG-Ratio Vergleich</p>
@@ -648,50 +709,20 @@
 
   <hr class="rule">
 
-  <!-- BRANCHENVERGLEICH -->
   <div class="section">
     <div class="section-rule"></div>
     <div class="section-label">Teil 3</div>
     <h2>KGV im Branchenvergleich – ohne Kontext wertlos</h2>
-
-    <p>Eines der häufigsten Missverständnisse beim KGV ist der sektorübergreifende Vergleich. Ein KGV von 25 ist für ein Tech-Unternehmen möglicherweise günstig, für einen Versorger hingegen astronomisch überteuert. Verschiedene Branchen haben strukturell unterschiedliche faire KGV-Niveaus, bedingt durch ihre Wachstumsperspektiven, Kapitalintensität und Ertragsstabilität.</p>
+    <p>Eines der häufigsten Missverständnisse beim KGV ist der sektorübergreifende Vergleich. Ein KGV von 25 ist für ein Tech-Unternehmen möglicherweise günstig, für einen Versorger hingegen astronomisch überteuert. Verschiedene Branchen haben strukturell unterschiedliche faire KGV-Niveaus.</p>
 
     <div style="margin: 2rem 0;">
-      <div class="branch-row">
-        <span class="branch-name">Technologie (USA)</span>
-        <div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill high" style="width: 80%"></div></div></div>
-        <span class="branch-kgv">~35</span>
-      </div>
-      <div class="branch-row">
-        <span class="branch-name">Konsumgüter (Wachstum)</span>
-        <div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill high" style="width: 65%"></div></div></div>
-        <span class="branch-kgv">~28</span>
-      </div>
-      <div class="branch-row">
-        <span class="branch-name">Gesundheitswesen</span>
-        <div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill" style="width: 55%"></div></div></div>
-        <span class="branch-kgv">~22</span>
-      </div>
-      <div class="branch-row">
-        <span class="branch-name">Industrieunternehmen</span>
-        <div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill" style="width: 42%"></div></div></div>
-        <span class="branch-kgv">~18</span>
-      </div>
-      <div class="branch-row">
-        <span class="branch-name">Finanzwerte</span>
-        <div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill low" style="width: 30%"></div></div></div>
-        <span class="branch-kgv">~12</span>
-      </div>
-      <div class="branch-row">
-        <span class="branch-name">Energie (Öl & Gas)</span>
-        <div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill low" style="width: 25%"></div></div></div>
-        <span class="branch-kgv">~10</span>
-      </div>
-      <div class="branch-row">
-        <span class="branch-name">Versorger</span>
-        <div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill low" style="width: 35%"></div></div></div>
-        <span class="branch-kgv">~15</span>
-      </div>
+      <div class="branch-row"><span class="branch-name">Technologie (USA)</span><div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill high" style="width: 80%"></div></div></div><span class="branch-kgv">~35</span></div>
+      <div class="branch-row"><span class="branch-name">Konsumgüter (Wachstum)</span><div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill high" style="width: 65%"></div></div></div><span class="branch-kgv">~28</span></div>
+      <div class="branch-row"><span class="branch-name">Gesundheitswesen</span><div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill" style="width: 55%"></div></div></div><span class="branch-kgv">~22</span></div>
+      <div class="branch-row"><span class="branch-name">Industrieunternehmen</span><div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill" style="width: 42%"></div></div></div><span class="branch-kgv">~18</span></div>
+      <div class="branch-row"><span class="branch-name">Finanzwerte</span><div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill low" style="width: 30%"></div></div></div><span class="branch-kgv">~12</span></div>
+      <div class="branch-row"><span class="branch-name">Energie (Öl & Gas)</span><div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill low" style="width: 25%"></div></div></div><span class="branch-kgv">~10</span></div>
+      <div class="branch-row"><span class="branch-name">Versorger</span><div class="branch-bar-wrap"><div class="branch-bar"><div class="branch-fill low" style="width: 35%"></div></div></div><span class="branch-kgv">~15</span></div>
     </div>
     <p style="font-size: 0.78rem; color: var(--ink-muted); font-family: 'Inter', sans-serif;">Ungefähre historische Durchschnittswerte · variieren je nach Konjunktur und Zinsniveau</p>
 
@@ -703,61 +734,52 @@
 
   <hr class="rule">
 
-  <!-- GRENZEN -->
   <div class="section">
     <div class="section-rule"></div>
     <div class="section-label">Teil 4</div>
     <h2>Die Grenzen des KGV – was es nicht kann</h2>
-
     <p>So nützlich das KGV ist – es hat erhebliche strukturelle Schwächen, die jeder Anleger kennen muss:</p>
 
     <h3>Problem 1: Gewinne sind manipulierbar</h3>
-    <p>Der Gewinn je Aktie im Nenner des KGV ist eine buchhalterische Größe – und Buchhaltung lässt Spielräume. Durch die Wahl von Abschreibungsmethoden, die Aktivierung von Entwicklungskosten, die Behandlung von Rückstellungen und zahlreiche andere Wahlrechte können Unternehmen ihre berichteten Gewinne erheblich beeinflussen. Ein niedriges KGV, das auf aggressiver Gewinnoptimierung basiert, ist ein trügerisches Signal.</p>
+    <p>Der Gewinn je Aktie im Nenner des KGV ist eine buchhalterische Größe – und Buchhaltung lässt Spielräume. Durch die Wahl von Abschreibungsmethoden, die Aktivierung von Entwicklungskosten, die Behandlung von Rückstellungen und zahlreiche andere Wahlrechte können Unternehmen ihre berichteten Gewinne erheblich beeinflussen.</p>
 
     <h3>Problem 2: Schulden werden ignoriert</h3>
-    <p>Das klassische KGV berücksichtigt die Kapitalstruktur eines Unternehmens nicht. Ein hochverschuldetes Unternehmen und ein schuldenfreies Unternehmen können dasselbe KGV haben – sind aber fundamental unterschiedliche Investments. Ein hoch verschuldetes Unternehmen trägt mehr Risiko, muss mehr Zinsen zahlen und hat weniger Flexibilität. Das KGV allein erkennt diesen Unterschied nicht.</p>
+    <p>Das klassische KGV berücksichtigt die Kapitalstruktur eines Unternehmens nicht. Ein hochverschuldetes Unternehmen und ein schuldenfreies Unternehmen können dasselbe KGV haben – sind aber fundamental unterschiedliche Investments.</p>
 
     <div class="infobox-red infobox">
       <strong>Die gefährlichsten KGV-Fallen</strong>
-      <p>1. Negatives KGV ignorieren: Bei Verlustunternehmen ist das KGV nicht berechenbar oder negativ – das KGV verschwindet, das Risiko bleibt. 2. Zykliker mit Tief-KGV kaufen: In Hochkonjunktur erscheinen Zyklikeraktien billig (hohes Ergebnis → niedriges KGV) – genau dann sind sie oft am teuersten. 3. KGV isoliert betrachten: Ohne Wachstum, Schulden, Branche und Marktumfeld ist das KGV wertlos.</p>
+      <p>1. Negatives KGV ignorieren: Bei Verlustunternehmen ist das KGV nicht berechenbar – das KGV verschwindet, das Risiko bleibt. 2. Zykliker mit Tief-KGV kaufen: In Hochkonjunktur erscheinen Zyklikeraktien billig – genau dann sind sie oft am teuersten. 3. KGV isoliert betrachten: Ohne Wachstum, Schulden, Branche und Marktumfeld ist das KGV wertlos.</p>
     </div>
 
     <h3>Problem 3: Zinsen und das KGV</h3>
-    <p>Das faire KGV-Niveau ist nicht konstant – es hängt vom Zinsniveau ab. In Nullzinsphasen rechtfertigen höhere Zinsen niedrigere KGVs, weil Anleihen als Alternative attraktiver werden. Das erklärt, warum der Anstieg der Zinsen 2022–2023 zu erheblichen KGV-Kompressionen bei Wachstumsaktien geführt hat – nicht weil die Gewinne einbrachen, sondern weil das faire KGV bei höheren Zinsen niedriger ist.</p>
+    <p>Das faire KGV-Niveau ist nicht konstant – es hängt vom Zinsniveau ab. In Niedrigzinsphasen rechtfertigen höhere Zinsen niedrigere KGVs, weil Anleihen als Alternative attraktiver werden. Das erklärt, warum der Anstieg der Zinsen 2022–2023 zu erheblichen KGV-Kompressionen bei Wachstumsaktien geführt hat.</p>
 
     <h3>Problem 4: Wachstum wird nicht berücksichtigt</h3>
-    <p>Ein Unternehmen, das seinen Gewinn jährlich um 30 % steigert, verdient ein deutlich höheres KGV als ein stagnierendes Unternehmen – auch wenn beide heute denselben Gewinn erzielen. Das einfache KGV kann diesen Wachstumswert nicht einfangen. Hier hilft die PEG-Ratio als Ergänzung.</p>
+    <p>Ein Unternehmen, das seinen Gewinn jährlich um 30 % steigert, verdient ein deutlich höheres KGV als ein stagnierendes Unternehmen. Das einfache KGV kann diesen Wachstumswert nicht einfangen. Hier hilft die PEG-Ratio als Ergänzung.</p>
   </div>
 
   <hr class="rule">
 
-  <!-- ANWENDUNG -->
   <div class="section">
     <div class="section-rule"></div>
     <div class="section-label">Teil 5</div>
     <h2>Praktische Anwendung – wie Anleger das KGV richtig nutzen</h2>
 
-    <div class="section">
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin: 1rem 0;">
-        <div>
-          <p>Das KGV ist am nützlichsten als Screening-Tool – als erster Filter, der potenzielle Kandidaten für eine tiefere Analyse identifiziert. Ein sehr niedriges KGV im Vergleich zum Branchendurchschnitt signalisiert: hier könnte eine Unterbewertung vorliegen, die weitere Untersuchung rechtfertigt. Oder – und das ist genauso wichtig – hier liegen strukturelle Probleme vor, die das Markt bereits eingepreist hat.</p>
-          <p>Kein seriöser Fundamentalanalyst trifft Anlageentscheidungen allein auf Basis des KGV. Es ist immer ein Ausgangspunkt, niemals ein Endpunkt. Die eigentliche Arbeit beginnt danach: Qualität des Geschäftsmodells, Wettbewerbsposition, Management, Bilanzqualität, Cashflow-Generierung, Wachstumsperspektiven.</p>
-        </div>
-        <div>
-          <p>Für Privatanleger ohne Zeit für tiefe Fundamentalanalyse ist die wichtigste Erkenntnis: Das KGV des Gesamtmarkts ist relevanter als das einzelner Aktien. Das Shiller-CAPE des S&P 500 oder des MSCI World gibt Hinweise darauf, ob Aktien als Anlageklasse insgesamt günstig oder teuer bewertet sind – und damit, ob langfristige Renditeerwartungen eher überdurchschnittlich oder unterdurchschnittlich sein werden.</p>
-          <p>Für Robo-Advisor und passive ETF-Strategien ist das KGV eine Hintergrundvariable: Einige Anbieter nutzen Value-Faktor-Gewichtungen, die günstig bewertete Aktien übergewichten. Andere sind rein marktkapitalisierungsgewichtet und ignorieren Bewertungskennzahlen bewusst.</p>
-        </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin: 1rem 0;">
+      <div>
+        <p>Das KGV ist am nützlichsten als Screening-Tool – als erster Filter, der potenzielle Kandidaten für eine tiefere Analyse identifiziert. Ein sehr niedriges KGV im Vergleich zum Branchendurchschnitt signalisiert: hier könnte eine Unterbewertung vorliegen. Oder – und das ist genauso wichtig – hier liegen strukturelle Probleme vor, die der Markt bereits eingepreist hat.</p>
+        <p>Kein seriöser Fundamentalanalyst trifft Anlageentscheidungen allein auf Basis des KGV. Es ist immer ein Ausgangspunkt, niemals ein Endpunkt. Die eigentliche Arbeit beginnt danach: Qualität des Geschäftsmodells, Wettbewerbsposition, Management, Bilanzqualität, Cashflow-Generierung, Wachstumsperspektiven.</p>
+      </div>
+      <div>
+        <p>Für Privatanleger ohne Zeit für tiefe Fundamentalanalyse ist die wichtigste Erkenntnis: Das KGV des Gesamtmarkts ist relevanter als das einzelner Aktien. Das Shiller-CAPE des S&P 500 oder des MSCI World gibt Hinweise darauf, ob Aktien als Anlageklasse insgesamt günstig oder teuer bewertet sind.</p>
+        <p>Für Robo-Advisor und passive ETF-Strategien ist das KGV eine Hintergrundvariable: Einige Anbieter nutzen Value-Faktor-Gewichtungen, die günstig bewertete Aktien übergewichten. Andere sind rein marktkapitalisierungsgewichtet und ignorieren Bewertungskennzahlen bewusst.</p>
       </div>
     </div>
 
     <div class="table-wrap">
       <table>
         <thead>
-          <tr>
-            <th>KGV-Signal</th>
-            <th>Mögliche Interpretation</th>
-            <th>Weitere Prüfung empfohlen</th>
-          </tr>
+          <tr><th>KGV-Signal</th><th>Mögliche Interpretation</th><th>Weitere Prüfung empfohlen</th></tr>
         </thead>
         <tbody>
           <tr><td class="hl">Sehr niedriges KGV (unter 10)</td><td>Unterbewertung oder strukturelle Probleme</td><td>Warum ist es so günstig? Schulden? Schrumpfende Branche?</td></tr>
@@ -772,7 +794,6 @@
 
   <hr class="rule">
 
-  <!-- FAZIT -->
   <div class="section">
     <div class="section-rule"></div>
     <div class="section-label">Fazit</div>
@@ -781,7 +802,7 @@
     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin: 1rem 0;">
       <div>
         <p>Das Kurs-Gewinn-Verhältnis ist und bleibt die wichtigste Einzelkennzahl der Aktienanalyse – trotz aller Einschränkungen. Es verbindet Marktbewertung mit Unternehmensrealität in einer einzigen, intuitiv verständlichen Zahl. Das macht es unverzichtbar als Orientierungspunkt, als Gesprächsgrundlage und als erster Filter in der Aktienauswahl.</p>
-        <p>Wer das KGV richtig einsetzt – im Branchenkontext, im historischen Vergleich, als Ergänzung zu anderen Kennzahlen wie PEG-Ratio, KBV, EV/EBITDA und freiem Cashflow – hat ein mächtiges analytisches Werkzeug in der Hand. Wer es isoliert und mechanisch anwendet, riskiert gefährliche Fehlschlüsse.</p>
+        <p>Wer das KGV richtig einsetzt – im Branchenkontext, im historischen Vergleich, als Ergänzung zu anderen Kennzahlen wie PEG-Ratio, KBV, EV/EBITDA und freiem Cashflow – hat ein mächtiges analytisches Werkzeug in der Hand.</p>
       </div>
       <div>
         <p>Für Privatanleger, die keine Zeit für tiefe Fundamentalanalyse haben, gilt: Das Shiller-CAPE als Marktbewertungsindikator im Blick behalten – und für die eigentliche Anlage auf breit diversifizierte ETF-Sparpläne oder Robo-Advisor setzen, die Bewertungskennzahlen systematisch und algorithmisch verarbeiten.</p>
